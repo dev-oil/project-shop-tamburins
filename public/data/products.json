@@ -1,0 +1,289 @@
+[
+  {
+    "id": "12321313",
+    "product_id": "bottari",
+    "name": "퍼퓸 보타리",
+    "price": 178000,
+    "category": "perfume",
+    "sub_category": "perfume",
+    "series": "bottari",
+    "attributes": {
+      "volume": "50ml"
+    },
+    "scent_notes": "시원한 아키갈라우드 | 부드러운 이끼와 버섯 | 앰버 머스크",
+    "desc": "보타리는 버섯 포자가 터질 때 느껴지는 폭발적인 생명력을 닮아, 깊고 감각적인 향의 파동으로 주변을 장악합니다. 단단한 매듭 속에 감춰진 것들이 하나씩 모습을 드러내며 호기심을 자아내고, 시원한 아키갈라우드를 가득 머금은 공기가 스치면 젖은 대지 위 부드러운 이끼와 나뭇결의 내음이 뒤따르며 예상치 못한 향의 변주가 시작됩니다. 그리고 마침내 보따리가 완전히 펼쳐지면, 생소한 물건들이 쏟아져 나오듯이 신비로운 앰버그리스와 묵직한 머스크가 만나 폭발하듯 퍼뜨려지며 어두운 하늘에 반짝이는 수천 개의 별처럼 아름다운 형상을 수놓아 공기를 황홀하게 물들입니다.",
+    "images": {
+      "thumbnail": "/images/products/perfume/perfume/bottari/thumbnail_Bottari_50ml_Perfume_2.jpg",
+      "catalog": [
+        "/images/products/perfume/perfume/bottari/thumbnail_Bottari_50ml_Perfume_Box.jpg"
+      ]
+    }
+  },
+  {
+    "id": "3243",
+    "product_id": "bottari",
+    "name": "퍼퓸 보타리 블랙",
+    "price": 78000,
+    "category": "perfume",
+    "sub_category": "perfume",
+    "series": "bottari",
+    "scent_notes": "시원한 아키갈라우드 | 부드러운 이끼와 버섯 | 앰버 머스크",
+    "desc": "보타리는 버섯 포자가 터질 때 느껴지는 폭발적인 생명력을 닮아, 깊고 감각적인 향의 파동으로 주변을 장악합니다. 단단한 매듭 속에 감춰진 것들이 하나씩 모습을 드러내며 호기심을 자아내고, 시원한 아키갈라우드를 가득 머금은 공기가 스치면 젖은 대지 위 부드러운 이끼와 나뭇결의 내음이 뒤따르며 예상치 못한 향의 변주가 시작됩니다. 그리고 마침내 보따리가 완전히 펼쳐지면, 생소한 물건들이 쏟아져 나오듯이 신비로운 앰버그리스와 묵직한 머스크가 만나 폭발하듯 퍼뜨려지며 어두운 하늘에 반짝이는 수천 개의 별처럼 아름다운 형상을 수놓아 공기를 황홀하게 물들입니다.",
+    "images": {
+      "thumbnail": "/images/products/perfume/perfume/bottari/thumbnail_Bottari_11ml_Purfume_Black_2.jpg",
+      "catalog": [
+        "/images/products/perfume/perfume/bottari/thumbnail_Bottari_11ml_Purfume_Box.jpg"
+      ]
+    },
+    "attributes": {
+      "volume": "11ml",
+      "color": "black"
+    }
+  },
+  {
+    "id": "293580294",
+    "product_id": "bottari",
+    "name": "퍼퓸 보타리 화이트",
+    "price": 78000,
+    "category": "perfume",
+    "sub_category": "perfume",
+    "series": "bottari",
+    "scent_notes": "시원한 아키갈라우드 | 부드러운 이끼와 버섯 | 앰버 머스크",
+    "desc": "보타리는 버섯 포자가 터질 때 느껴지는 폭발적인 생명력을 닮아, 깊고 감각적인 향의 파동으로 주변을 장악합니다. 단단한 매듭 속에 감춰진 것들이 하나씩 모습을 드러내며 호기심을 자아내고, 시원한 아키갈라우드를 가득 머금은 공기가 스치면 젖은 대지 위 부드러운 이끼와 나뭇결의 내음이 뒤따르며 예상치 못한 향의 변주가 시작됩니다. 그리고 마침내 보따리가 완전히 펼쳐지면, 생소한 물건들이 쏟아져 나오듯이 신비로운 앰버그리스와 묵직한 머스크가 만나 폭발하듯 퍼뜨려지며 어두운 하늘에 반짝이는 수천 개의 별처럼 아름다운 형상을 수놓아 공기를 황홀하게 물들입니다.",
+    "images": {
+      "thumbnail": "/images/products/perfume/perfume/bottari/thumbnail_Bottari_11ml_Purfume_White.jpg",
+      "catalog": [
+        "/images/products/perfume/perfume/bottari/thumbnail_Bottari_11ml_Purfume_Box.jpg"
+      ]
+    },
+    "attributes": {
+      "volume": "11ml",
+      "color": "white"
+    }
+  },
+  {
+    "id": "1",
+    "product_id": "evening-glow",
+    "name": "퍼퓸 이브닝글로우",
+    "price": 149000,
+    "category": "perfume",
+    "sub_category": "perfume",
+    "series": "evening-glow",
+    "scent_notes": "노을에 물든 장미 | 라즈베리 | 머스크",
+    "desc": "모든 순간에 장미는 장미로써 완벽하게 존재합니다. 씨앗에서 움트어 화려하게 피어지는 매 순간, 끊임없이 변화하는 것처럼 보이지만 본질적으로 장미는 장미의 고아한 아름다움을 내포하고 있습니다. 해질녘 노을이 장미를 라즈베리처럼 발갛게 물들이고, 신선한 딜과 상큼한 레몬껍질로 밝은 빛을 겹쳐내면 살결을 보호하는 견고하고 우아한 가시처럼 얼씨한 패츌리와 사이프리올이 무게감을 더해 또 하나의 완전한 장미를 보여줍니다.",
+    "images": {
+      "thumbnail": "/images/products/perfume/perfume/evening-glow/Thumbnail03_Evening_Glow_Perfume.jpg",
+      "catalog": [
+        "/images/products/perfume/perfume/evening-glow/thumbnail_Evening_50ml_Perfume_Box.jpg",
+        "/images/products/perfume/perfume/evening-glow/Thumbnail03_Evening-Glow_frg.jpg",
+        "/images/products/perfume/perfume/evening-glow/evening_desc.png"
+      ]
+    },
+    "attributes": {
+      "volume": "50ml"
+    }
+  },
+  {
+    "id": "1342342333",
+    "product_id": "evening-glow",
+    "name": "퍼퓸 이브닝글로우",
+    "price": 42000,
+    "category": "perfume",
+    "sub_category": "perfume",
+    "series": "evening-glow",
+    "scent_notes": "노을에 물든 장미 | 라즈베리 | 머스크",
+    "desc": "모든 순간에 장미는 장미로써 완벽하게 존재합니다. 씨앗에서 움트어 화려하게 피어지는 매 순간, 끊임없이 변화하는 것처럼 보이지만 본질적으로 장미는 장미의 고아한 아름다움을 내포하고 있습니다. 해질녘 노을이 장미를 라즈베리처럼 발갛게 물들이고, 신선한 딜과 상큼한 레몬껍질로 밝은 빛을 겹쳐내면 살결을 보호하는 견고하고 우아한 가시처럼 얼씨한 패츌리와 사이프리올이 무게감을 더해 또 하나의 완전한 장미를 보여줍니다.",
+    "images": {
+      "thumbnail": "/images/products/perfume/perfume/evening-glow/thumbnail_Evening_11ml_Perfume.jpg",
+      "catalog": [
+        "/images/products/perfume/perfume/evening-glow/thumbnail_Evening_11ml_Perfume_Box.jpg",
+        "/images/products/perfume/perfume/evening-glow/Thumbnail03_Evening-Glow_frg.jpg",
+        "/images/products/perfume/perfume/evening-glow/evening_desc.png"
+      ]
+    },
+    "attributes": {
+      "volume": "11ml"
+    }
+  },
+  {
+    "id": "1325465",
+    "product_id": "pumpkini",
+    "name": "퍼퓸 펌키니",
+    "price": 149000,
+    "category": "perfume",
+    "sub_category": "perfume",
+    "series": "pumpkini",
+    "scent_notes": "달콤한 호박ㅣ차조기잎ㅣ코코넛밀크",
+    "desc": "하얀 호박에서 느껴지는 청초하고 달콤한 향에 차조기잎과 블러드오렌지의 독특한 푸르름이 더해져 기분 좋은 놀라움을 선사합니다. 잘 여물어 진득해진 호박향과 진저의 스파이시함이 교차되어 독특한 조화를 이루고 뒤이어 밀려오는 크리미한 코코넛밀크는 부드러운 샌달우드와 함께 오묘한 잔상을 만들며 깊은 여운을 그려냅니다.",
+    "images": {
+      "thumbnail": "/images/products/perfume/perfume/pumkini/thumbnail_Perfume2_50ml_Pumkini.jpg",
+      "catalog": [
+        "/images/products/perfume/perfume/pumkini/thumbnail_Perfume2_50ml_Pumkini_Box.jpg"
+      ]
+    },
+    "attributes": {
+      "volume": "50ml"
+    }
+  },
+  {
+    "id": "454321",
+    "product_id": "holy-metal",
+    "name": "퍼퓸 홀리메탈",
+    "price": 149000,
+    "category": "perfume",
+    "sub_category": "perfume",
+    "series": "holy-metal",
+    "scent_notes": "측백나무잎ㅣ차가운 금속ㅣ화이트 머스크",
+    "desc": "우연히 발 딛은 신성한 유적지의 성전에서 느껴지는 깨끗하고 차분한 공기를 떠올리게 합니다. 푸른 측백나무 잎가지와 세이지의 조합에 깊이를 더해주는 인센스와 절제된 차가움을 지닌 금속성의 느낌이 어우러져 마치 정지된 시간의 순간을 맞이한 듯 신비한 느낌을 자아내고, 화이트 머스크와 우디노트가 기분 좋은 여운으로 어우러져 오랜 시간 은은하게 머무릅니다.",
+    "images": {
+      "thumbnail": "/images/products/perfume/perfume/holly-metal/Thumbnail_Perfume2_50ml_HolyMetal.jpg",
+      "catalog": [
+        "/images/products/perfume/perfume/holly-metal/Thumbnail_Box_Perfume2_50ml_HolyMetal.jpg"
+      ]
+    },
+    "attributes": {
+      "volume": "50ml"
+    }
+  },
+  {
+    "id": "85465",
+    "product_id": "bold-citrus",
+    "name": "퍼퓸 볼드시트러스",
+    "price": 149000,
+    "category": "perfume",
+    "sub_category": "perfume",
+    "series": "bold-citrus",
+    "scent_notes": "다채로운 시트러스ㅣ캐럿시드ㅣ고소한 결명자",
+    "desc": "상큼하고 다채로운 시트러스로 경쾌하게 시작하는 볼드시트러스는 만다린의 달콤한 과육과 비터오렌지의 씁쓸한 껍질이 만나 고소한 결명자와 어우러지며 독특한 향취를 만들어냅니다. 젖은 흙이 떠오르는 사이프리올은 알싸한 암브레트씨드와 섞이며 우디한 잔향의 묵직한 무게감으로 맺어줍니다.",
+    "images": {
+      "thumbnail": "/images/products/perfume/perfume/bold-citrus/Thumbnail_Perfume2_50ml_BoldCitrus.jpg",
+      "catalog": [
+        "/images/products/perfume/perfume/bold-citrus/Thumbnail_Box_Perfume2_50ml_BoldCitrus.jpg"
+      ]
+    },
+    "attributes": {
+      "volume": "50ml"
+    }
+  },
+  {
+    "id": "4542154",
+    "product_id": "wood-salt-beach",
+    "name": "퍼퓸 우드솔트비치",
+    "price": 149000,
+    "category": "perfume",
+    "sub_category": "perfume",
+    "series": "wood-salt-beach",
+    "scent_notes": "로즈우드ㅣ씨솔트ㅣ암브레트 시드",
+    "desc": "햇살에 물든 에메랄드빛 바다와 숲의 경계에서 불어오는 시원한 바람을 떠오르게 합니다. 첫 시작을 여는 달콤한 로즈우드와 베르가못이 기분좋은 청량함을 주고, 짭짤한 바다내음이 느껴지는 씨솔트향은 한가로운 여름날의 추억을 비춥니다. 뒤이어 시더우드와 머스크가 포근하게 감싸 안아 무게감 있게 마무리됩니다.",
+    "images": {
+      "thumbnail": "/images/products/perfume/perfume/wood-salt-beach/Thumbnail_Perfume2_50ml_WoodSaltBeach.jpg",
+      "catalog": [
+        "/images/products/perfume/perfume/wood-salt-beach/Thumbnail_Box_Perfume2_50ml_WoodSaltBeach.jpg"
+      ]
+    },
+    "attributes": {
+      "volume": "50ml"
+    }
+  },
+  {
+    "id": "4",
+    "product_id": "egg-perfume",
+    "name": "에그 퍼퓸 펌키니",
+    "price": 45800,
+    "category": "perfume",
+    "sub_category": "perfume",
+    "series": "egg-perfume",
+    "scent_notes": "달콤한 호박 | 차조기잎 | 코코넛밀크",
+    "desc": "하얀 호박에서 느껴지는 청초하고 달콤한 향에 차조기잎과 블러드오렌지의 독특한 푸르름이 더해져 기분 좋은 놀라움을 선사합니다. 잘 여물어 진득해진 호박향과 진저의 스파이시함이 교차되어 독특한 조화를 이루고 뒤이어 밀려오는 크리미한 코코넛밀크는 부드러운 샌달우드와 함께 오묘한 잔상을 만들며 깊은 여운을 그려냅니다.",
+    "images": {
+      "thumbnail": "/images/products/perfume/perfume/egg-perfume/thumbnail_EggPerfume_1.jpg",
+      "catalog": [
+        "/images/products/perfume/perfume/egg-perfume/thumbnail_EggPerfume_Pumkini_Box.jpg"
+      ]
+    },
+    "attributes": {
+      "volume": "14ml"
+    }
+  },
+  {
+    "id": "134234234",
+    "product_id": "bottari",
+    "name": "퍼퓸 밤 보타리",
+    "price": 149000,
+    "category": "perfume",
+    "sub_category": "perfume-balm",
+    "series": "bottari",
+    "scent_notes": "노을에 물든 장미 | 라즈베리 | 머스크",
+    "desc": "모든 순간에 장미는 장미로써 완벽하게 존재합니다. 씨앗에서 움트어 화려하게 피어지는 매 순간, 끊임없이 변화하는 것처럼 보이지만 본질적으로 장미는 장미의 고아한 아름다움을 내포하고 있습니다. 해질녘 노을이 장미를 라즈베리처럼 발갛게 물들이고, 신선한 딜과 상큼한 레몬껍질로 밝은 빛을 겹쳐내면 살결을 보호하는 견고하고 우아한 가시처럼 얼씨한 패츌리와 사이프리올이 무게감을 더해 또 하나의 완전한 장미를 보여줍니다.",
+    "images": {
+      "thumbnail": "/images/products/perfume/perfume-balm/bottari/thumbnail_BALM_BOTTARI.jpg",
+      "catalog": [
+        "/images/products/perfume/perfume-balm/bottari/thumbnail_BOX_BOTTARI_2.jpg"
+      ]
+    },
+    "attributes": {
+      "volume": "50ml"
+    }
+  },
+  {
+    "id": "2",
+    "product_id": "evening-glow",
+    "name": "쉘 퍼퓸 핸드 이브닝 글로우",
+    "price": 18500,
+    "category": "hand-lip",
+    "sub_category": "shell-perfume-hand",
+    "series": "evening-glow",
+    "scent_notes": "노을에 물든 장미 | 라즈베리 | 머스크",
+    "desc": "모든 순간에 장미는 장미로써 완벽하게 존재합니다. 씨앗에서 움트어 화려하게 피어지는 매 순간, 끊임없이 변화하는 것처럼 보이지만 본질적으로 장미는 장미의 고아한 아름다움을 내포하고 있습니다. 해질녘 노을이 장미를 라즈베리처럼 발갛게 물들이고, 신선한 딜과 상큼한 레몬껍질로 밝은 빛을 겹쳐내면 살결을 보호하는 견고하고 우아한 가시처럼 얼씨한 패츌리와 사이프리올이 무게감을 더해 또 하나의 완전한 장미를 보여줍니다.",
+    "images": {
+      "thumbnail": "/images/products/hand-lip/shell-perfume-hand/evening-glow/Thumbnail03_Evening_Glow_Shell_15ml.jpg",
+      "catalog": [
+        "/images/products/hand-lip/shell-perfume-hand/evening-glow/thumbnail_shell_hand_evening_15ml_box.jpg"
+      ]
+    },
+    "attributes": {
+      "volume": "15ml"
+    }
+  },
+  {
+    "id": "5",
+    "product_id": "evening-glow",
+    "name": "쉘 퍼퓸 핸드 이브닝글로우",
+    "price": 55000,
+    "category": "hand-lip",
+    "sub_category": "shell-hand",
+    "series": "evening-glow",
+    "scent_notes": "노을에 물든 장미 | 라즈베리 | 머스크",
+    "desc": "모든 순간에 장미는 장미로써 완벽하게 존재합니다. 씨앗에서 움트어 화려하게 피어지는 매 순간, 끊임없이 변화하는 것처럼 보이지만 본질적으로 장미는 장미의 고아한 아름다움을 내포하고 있습니다. 해질녘 노을이 장미를 라즈베리처럼 발갛게 물들이고, 신선한 딜과 상큼한 레몬껍질로 밝은 빛을 겹쳐내면 살결을 보호하는 견고하고 우아한 가시처럼 얼씨한 패츌리와 사이프리올이 무게감을 더해 또 하나의 완전한 장미를 보여줍니다.",
+    "images": {
+      "thumbnail": "/images/products/hand-lip/shell-perfume-hand/evening-glow/Thumbnail03_Evening_Glow_Shell_15ml.jpg",
+      "catalog": [
+        "/images/products/hand-lip/shell-perfume-hand/evening-glow/thumbnail_shell_hand_evening_15ml_box.jpg"
+      ]
+    },
+    "attributes": {
+      "volume": "30ml"
+    }
+  },
+  {
+    "id": "3",
+    "product_id": "rosewoody-glow",
+    "name": "에그 립밤 로즈우디 글로우",
+    "price": 28900,
+    "category": "hand-lip",
+    "sub_category": "egg-lip",
+    "series": "rosewoody-glow",
+    "scent_notes": "자몽 | 우아한 장미 | 머스크",
+    "desc": "섬세한 장미향은 시대를 초월하면서도 현대적인 우아함을 간직하고 있습니다. 여기에 자몽의 시트러스함과 유향의 스파이시함이 더해져 매력적이고 모던한 느낌을 경험하게 합니다. 우디한 잔향은 머스크 노트로 따뜻하고 부드럽게 전체 향을 감싸줍니다",
+    "images": {
+      "thumbnail": "/images/products/hand-lip/egg-lip/rosewoody-glow/Thumbnail03_Evening_Glow_EggBalm.jpg",
+      "catalog": [
+        "/images/products/hand-lip/egg-lip/rosewoody-glow/Thumbnail03_Evening_Glow_Egg_Box.jpg",
+        "/images/products/hand-lip/egg-lip/rosewoody-glow/Thumbnail03_Evening-Glow_frg.jpg"
+      ]
+    },
+    "attributes": {
+      "volume": "5g"
+    }
+  }
+]
