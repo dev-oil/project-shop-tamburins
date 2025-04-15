@@ -23,7 +23,7 @@ const ProductContent = () => {
   });
 
   const product = products?.find((product) => product.id === id);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, _] = useState(1);
   const { addToCart } = useCart();
 
   if (!product)
