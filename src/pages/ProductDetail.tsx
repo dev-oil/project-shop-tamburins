@@ -4,6 +4,10 @@ import { useState, Suspense } from 'react';
 import { useCart } from '../context/CartContext';
 import { Product } from '../types';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import {
+  getUniqueVolumeVariants,
+  getRelatedProducts,
+} from '../utils/productUtils';
 
 const fetchProducts = async (): Promise<Product[]> => {
   const response = await fetch('/data/products.json');
@@ -23,7 +27,7 @@ const ProductContent = () => {
   });
 
   const product = products?.find((product) => product.id === id);
-  const [quantity, _] = useState(1);
+  const [quantity] = useState(1);
   const { addToCart } = useCart();
 
   if (!product)
@@ -33,13 +37,12 @@ const ProductContent = () => {
       </p>
     );
 
-  // 카테고리 탭
-  const related = products.filter(
-    (p) =>
-      p.sub_category === product.sub_category &&
-      p.attributes?.volume === product.attributes?.volume
-  );
-  const sorted = [product, ...related.filter((p) => p.id !== product.id)];
+  const volumeVariants = getUniqueVolumeVariants(products, product);
+  const relatedProducts = getRelatedProducts(products, product);
+  const sorted = [
+    product,
+    ...relatedProducts.filter((p) => p.id !== product.id),
+  ];
 
   const handleAddToCart = () => {
     addToCart({ product, quantity });
@@ -120,19 +123,26 @@ const ProductContent = () => {
               </Swiper>
             </div>
             <div className='mt-[20px] pt-[20px] border-t-1 border-gray-200'>
-              <span className='block text-xs '>사이즈</span>
+              <span className='block text-xs'>사이즈</span>
               <div className='flex mt-[10px]'>
-                <button className='py-[5px] px-[32px] border-1 rounded-full'>
-                  11mL
-                </button>
-                <button className='ml-[10px] py-[5px] px-[32px] border-1 rounded-full'>
-                  20mL
-                </button>
+                {volumeVariants.map((item) => (
+                  <Link to={`/product/${item.id}`} key={item.id}>
+                    <button
+                      className={`mr-[10px] py-[10px] px-[32px] border-1 rounded-full text-xs ${
+                        item.id === product.id
+                          ? 'border-black'
+                          : 'border-gray-200 hover:border-black text-gray-500'
+                      } cursor-pointer`}
+                    >
+                      {item.attributes?.volume}
+                    </button>
+                  </Link>
+                ))}
               </div>
             </div>
 
             <button
-              className='w-full py-3 bg-black text-white text-lg rounded-md hover:bg-gray-900 transition cursor-pointer mt-[30px]'
+              className='w-full py-3 bg-black text-white text-sm rounded-md hover:bg-gray-900 transition cursor-pointer mt-[30px]'
               onClick={handleAddToCart}
             >
               쇼핑백에 추가
