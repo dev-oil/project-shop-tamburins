@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   getUniqueVolumeVariants,
   getRelatedProducts,
+  getUniqueColorVariants,
 } from '../utils/productUtils';
 
 const fetchProducts = async (): Promise<Product[]> => {
@@ -43,6 +44,7 @@ const ProductContent = () => {
     product,
     ...relatedProducts.filter((p) => p.id !== product.id),
   ];
+  const colorVariants = getUniqueColorVariants(products, product);
 
   const handleAddToCart = () => {
     addToCart({ product, quantity });
@@ -122,6 +124,36 @@ const ProductContent = () => {
                 ))}
               </Swiper>
             </div>
+
+            {/* color */}
+            {colorVariants.length > 0 && (
+              <div className='mt-[20px]'>
+                <span className='block text-xs mb-[10px]'>컬러</span>
+                <div className='flex gap-[10px]'>
+                  {colorVariants.map((item) => (
+                    <Link to={`/product/${item.id}`} key={item.id}>
+                      <div
+                        className={`w-[20px] h-[20px] rounded-full border-1 flex items-center justify-center ${
+                          item.id === product.id
+                            ? 'border-black'
+                            : 'border-gray-200'
+                        }`}
+                      >
+                        <div
+                          className='w-[10px] h-[10px] rounded-full'
+                          style={{
+                            backgroundColor:
+                              item.attributes?.color || '#f5f5f5',
+                          }}
+                        ></div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 사이즈 (ml) */}
             <div className='mt-[20px] pt-[20px] border-t-1 border-gray-200'>
               <span className='block text-xs'>사이즈</span>
               <div className='flex mt-[10px]'>

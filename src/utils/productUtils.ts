@@ -29,6 +29,32 @@ export const getUniqueVolumeVariants = (
   });
 };
 
+export const getUniqueColorVariants = (
+  products: Product[],
+  current: Product
+): Product[] => {
+  const sameVolume = products.filter(
+    (p) =>
+      p.sub_category === current.sub_category &&
+      p.series === current.series &&
+      p.attributes?.volume === current.attributes?.volume &&
+      p.attributes?.color
+  );
+
+  const colors = Array.from(
+    new Set(sameVolume.map((p) => p.attributes?.color))
+  );
+
+  return colors.map((color) => {
+    const candidates = sameVolume.filter((p) => p.attributes?.color === color);
+
+    const currentMatch = candidates.find((p) => p.id === current.id);
+    if (currentMatch) return currentMatch;
+
+    return candidates[0];
+  });
+};
+
 export const getRelatedProducts = (
   products: Product[],
   current: Product
