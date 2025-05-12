@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLogin } from '../hooks/useAuth';
+import { useGoogleLogin } from '../hooks/useAuth';
 import { useNavigate, Link } from 'react-router-dom';
 import { RiKakaoTalkFill } from 'react-icons/ri';
 import { FaGoogle } from 'react-icons/fa';
@@ -9,6 +10,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const loginMutation = useLogin();
+  const googleLoginMutation = useGoogleLogin();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,6 +25,10 @@ const LoginPage = () => {
         },
       }
     );
+  };
+
+  const handleGoogleLogin = () => {
+    googleLoginMutation.mutate();
   };
 
   return (
@@ -85,6 +91,7 @@ const LoginPage = () => {
 
           <div className='flex flex-col items-center gap-[10px]'>
             <button
+              onClick={handleGoogleLogin}
               type='button'
               className='flex items-center gap-2 bg-gray-100 w-full justify-center py-3 rounded cursor-pointer text-xs'
             >

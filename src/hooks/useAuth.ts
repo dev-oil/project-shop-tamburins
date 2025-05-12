@@ -1,6 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
 import { loginUser, signUpUser, logoutUser } from '../api/auth';
+import { signInWithGoogle } from '../api/auth';
 
+// 기본 로그인
 export const useLogin = () => {
   return useMutation({
     mutationFn: ({ email, password }: { email: string; password: string }) =>
@@ -18,5 +20,12 @@ export const useSignUp = () => {
 export const useLogout = () => {
   return useMutation({
     mutationFn: logoutUser,
+  });
+};
+
+// 구글 로그인
+export const useGoogleLogin = () => {
+  return useMutation({
+    mutationFn: signInWithGoogle,
   });
 };
