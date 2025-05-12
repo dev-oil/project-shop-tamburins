@@ -86,7 +86,7 @@ const ProductContent = () => {
           </div>
         </div>
 
-        <div className='w-full md:w-1/2 px-[8vw]'>
+        <div className='w-full md:w-1/2 px-[8vw] py-[30px]'>
           <div className='sticky top-[120px]'>
             <div>
               <h2 className='text-2xl'>{product.name}</h2>
@@ -127,7 +127,7 @@ const ProductContent = () => {
 
             {/* color */}
             {colorVariants.length > 0 && (
-              <div className='mt-[20px]'>
+              <div className='mt-[20px] pt-[20px] border-t-1 border-gray-200'>
                 <span className='block text-xs mb-[10px]'>컬러</span>
                 <div className='flex gap-[10px]'>
                   {colorVariants.map((item) => (
