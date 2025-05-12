@@ -10,6 +10,7 @@ import { CartProvider, useCart } from './context/CartContext';
 import CartModal from './components/CartModal';
 import Login from './pages/LoginPage';
 import MyPage from './pages/MyPage';
+import SignUpPage from './pages/SignUpPage';
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const Layout = () => {
         <Route path='/product/:id' element={<ProductDetail />} />
         <Route path='/login' element={<Login />} />
         <Route path='/mypage' element={<MyPage />} />
+        <Route path='/signup' element={<SignUpPage />} />
       </Routes>
 
       {isCartOpen && <CartModal onClose={closeCart} />}

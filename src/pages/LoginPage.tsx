@@ -38,7 +38,7 @@ const LoginPage = () => {
 
   return (
     <main className='main'>
-      <section className='mx-auto py-[20px] w-full md:max-w-[375px]'>
+      <section className='mx-auto py-[50px] w-full md:max-w-[375px]'>
         <ul className='flex border-b border-gray-300 relative'>
           <li className='flex-1 text-center relative after:content-[""] after:absolute after:left-0 after:bottom-[-1px] after:w-full after:h-[1px] after:bg-black'>
             <Link to='/login' className='block py-[15px] text-xs font-bold'>
