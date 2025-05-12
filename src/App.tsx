@@ -8,6 +8,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { CartProvider, useCart } from './context/CartContext';
 import CartModal from './components/CartModal';
+import Login from './pages/Login';
+import MyPage from './pages/MyPage';
 
 const queryClient = new QueryClient();
 
@@ -34,6 +36,8 @@ const Layout = () => {
         <Route path='/' element={<Home />} />
         <Route path='/category/:category' element={<CategoryPage />} />
         <Route path='/product/:id' element={<ProductDetail />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/mypage' element={<MyPage />} />
       </Routes>
 
       {isCartOpen && <CartModal onClose={closeCart} />}
