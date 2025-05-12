@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLogin } from '../hooks/useAuth';
+import { useKakaoLogin, useLogin } from '../hooks/useAuth';
 import { useGoogleLogin } from '../hooks/useAuth';
 import { useNavigate, Link } from 'react-router-dom';
 import { RiKakaoTalkFill } from 'react-icons/ri';
@@ -11,6 +11,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const loginMutation = useLogin();
   const googleLoginMutation = useGoogleLogin();
+  const kakaoLoginMutation = useKakaoLogin();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,6 +30,10 @@ const LoginPage = () => {
 
   const handleGoogleLogin = () => {
     googleLoginMutation.mutate();
+  };
+
+  const handleKakaoLogin = () => {
+    kakaoLoginMutation.mutate();
   };
 
   return (
@@ -99,10 +104,11 @@ const LoginPage = () => {
               구글 로그인
             </button>
             <button
+              onClick={handleKakaoLogin}
               type='button'
               className='flex items-center gap-2 bg-[#f7e600] w-full justify-center py-3 rounded cursor-pointer text-xs'
             >
-              <RiKakaoTalkFill />
+              <RiKakaoTalkFill size={15} />
               카카오 로그인
             </button>
           </div>

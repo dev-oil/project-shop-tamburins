@@ -32,3 +32,14 @@ export const signInWithGoogle = async () => {
 
   if (error) throw new Error(error.message);
 };
+
+// 카카오 로그인
+export const signInWithKakao = async () => {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'kakao',
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+};
