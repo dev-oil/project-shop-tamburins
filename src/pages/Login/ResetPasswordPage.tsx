@@ -30,7 +30,7 @@ const ResetPasswordPage = () => {
 
   return (
     <main className='main'>
-      <section className='mx-auto py-[20px] w-full md:max-w-[375px]'>
+      <section className='mx-auto py-[50px] w-full md:max-w-[375px]'>
         <h2 className='text-center text-[18px] font-bold mb-[30px]'>
           비밀번호 변경
         </h2>

@@ -8,11 +8,13 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { CartProvider, useCart } from './context/CartContext';
 import CartModal from './components/CartModal';
-import Login from './pages/Login/LoginPage';
+import LoginPage from './pages/Login/LoginPage';
 import MyPage from './pages/MyPage';
 import SignUpPage from './pages/Login/SignUpPage';
 import FindPwPage from './pages/Login/FindPwPage';
 import ResetPasswordPage from './pages/Login/ResetPasswordPage';
+import PrivateRoute from './components/routes/PrivateRoute';
+import PublicOnlyRoute from './components/routes/PublicOnlyRoute';
 
 const queryClient = new QueryClient();
 
@@ -39,11 +41,46 @@ const Layout = () => {
         <Route path='/' element={<Home />} />
         <Route path='/category/:category' element={<CategoryPage />} />
         <Route path='/product/:id' element={<ProductDetail />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/mypage' element={<MyPage />} />
-        <Route path='/signup' element={<SignUpPage />} />
-        <Route path='/find/pw' element={<FindPwPage />} />
-        <Route path='/reset-password' element={<ResetPasswordPage />} />
+        <Route
+          path='/login'
+          element={
+            <PublicOnlyRoute>
+              <LoginPage />
+            </PublicOnlyRoute>
+          }
+        />
+        <Route
+          path='/signup'
+          element={
+            <PublicOnlyRoute>
+              <SignUpPage />
+            </PublicOnlyRoute>
+          }
+        />
+        <Route
+          path='/find/pw'
+          element={
+            <PublicOnlyRoute>
+              <FindPwPage />
+            </PublicOnlyRoute>
+          }
+        />
+        <Route
+          path='/reset-password'
+          element={
+            <PublicOnlyRoute>
+              <ResetPasswordPage />
+            </PublicOnlyRoute>
+          }
+        />
+        <Route
+          path='/mypage'
+          element={
+            <PrivateRoute>
+              <MyPage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
 
       {isCartOpen && <CartModal onClose={closeCart} />}
