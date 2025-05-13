@@ -43,3 +43,11 @@ export const signInWithKakao = async () => {
     throw new Error(error.message);
   }
 };
+
+// 패스워드 리셋
+export const sendResetPasswordEmail = async (email: string) => {
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: 'http://localhost:5173/reset-password',
+  });
+  if (error) throw new Error(error.message);
+};

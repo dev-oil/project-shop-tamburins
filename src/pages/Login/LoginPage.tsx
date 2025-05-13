@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useKakaoLogin, useLogin } from '../hooks/useAuth';
-import { useGoogleLogin } from '../hooks/useAuth';
+import { useKakaoLogin, useLogin } from '../../hooks/useAuth';
+import { useGoogleLogin } from '../../hooks/useAuth';
 import { useNavigate, Link } from 'react-router-dom';
 import { RiKakaoTalkFill } from 'react-icons/ri';
 import { FaGoogle } from 'react-icons/fa';
@@ -8,6 +8,7 @@ import { FaGoogle } from 'react-icons/fa';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
   const navigate = useNavigate();
   const loginMutation = useLogin();
   const googleLoginMutation = useGoogleLogin();
@@ -15,6 +16,7 @@ const LoginPage = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
+    setLoginError('');
     loginMutation.mutate(
       { email, password },
       {
@@ -23,6 +25,7 @@ const LoginPage = () => {
         },
         onError: (error) => {
           console.error('로그인 실패:', error);
+          setLoginError('이메일 또는 비밀번호를 다시 확인해주세요.');
         },
       }
     );
@@ -84,11 +87,14 @@ const LoginPage = () => {
             >
               {loginMutation.isPending ? '로그인 중...' : '로그인'}
             </button>
+            {loginError && (
+              <p className='text-red-500 text-xs mt-[10px] text-center'>
+                {loginError}
+              </p>
+            )}
           </form>
 
           <div className='flex justify-center gap-[10px] text-xs mt-[12px] mb-[45px]'>
-            <Link to='/find/id'>아이디 찾기</Link>
-            <span>|</span>
             <Link to='/find/pw'>비밀번호 찾기</Link>
             <span>|</span>
             <Link to='/signup'>회원가입</Link>

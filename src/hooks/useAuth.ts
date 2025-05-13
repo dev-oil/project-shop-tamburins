@@ -1,5 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
-import { loginUser, signUpUser, logoutUser } from '../api/auth';
+import {
+  loginUser,
+  signUpUser,
+  logoutUser,
+  sendResetPasswordEmail,
+} from '../api/auth';
 import { signInWithGoogle, signInWithKakao } from '../api/auth';
 
 // 기본 로그인
@@ -34,5 +39,12 @@ export const useGoogleLogin = () => {
 export const useKakaoLogin = () => {
   return useMutation({
     mutationFn: signInWithKakao,
+  });
+};
+
+// 비밀번호 재설정
+export const useResetPasswordEmail = () => {
+  return useMutation({
+    mutationFn: (email: string) => sendResetPasswordEmail(email),
   });
 };

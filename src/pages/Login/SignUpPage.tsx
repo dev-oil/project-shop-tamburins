@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSignUp } from '../hooks/useAuth';
+import { useSignUp } from '../../hooks/useAuth';
 
 const SignUpPage = () => {
   const [email, setEmail] = useState('');
@@ -79,8 +79,6 @@ const SignUpPage = () => {
           </form>
 
           <div className='flex justify-center gap-[10px] text-xs mt-[12px] mb-[45px]'>
-            <Link to='/find/id'>아이디 찾기</Link>
-            <span>|</span>
             <Link to='/find/pw'>비밀번호 찾기</Link>
             <span>|</span>
             <Link to='/login'>로그인</Link>
