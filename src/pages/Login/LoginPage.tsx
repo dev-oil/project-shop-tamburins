@@ -31,14 +31,6 @@ const LoginPage = () => {
     );
   };
 
-  const handleGoogleLogin = () => {
-    googleLoginMutation.mutate();
-  };
-
-  const handleKakaoLogin = () => {
-    kakaoLoginMutation.mutate();
-  };
-
   return (
     <main className='main'>
       <section className='mx-auto py-[50px] w-full md:max-w-[375px]'>
@@ -102,7 +94,7 @@ const LoginPage = () => {
 
           <div className='flex flex-col items-center gap-[10px]'>
             <button
-              onClick={handleGoogleLogin}
+              onClick={() => googleLoginMutation.mutate()}
               type='button'
               className='flex items-center gap-2 bg-gray-100 w-full justify-center py-3 rounded cursor-pointer text-xs'
             >
@@ -110,7 +102,7 @@ const LoginPage = () => {
               구글 로그인
             </button>
             <button
-              onClick={handleKakaoLogin}
+              onClick={() => kakaoLoginMutation.mutate()}
               type='button'
               className='flex items-center gap-2 bg-[#f7e600] w-full justify-center py-3 rounded cursor-pointer text-xs'
             >
