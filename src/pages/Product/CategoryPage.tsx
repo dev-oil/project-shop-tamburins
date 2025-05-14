@@ -1,8 +1,8 @@
 import { useParams, Link } from 'react-router-dom';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { Suspense } from 'react';
-import { useCart } from '../context/CartContext';
-import { Product } from '../types';
+import { useCart } from '../../context/CartContext';
+import { Product } from '../../types';
 import { BiShoppingBag } from 'react-icons/bi';
 
 const fetchProducts = async (): Promise<Product[]> => {
