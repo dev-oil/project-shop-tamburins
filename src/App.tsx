@@ -40,6 +40,10 @@ const Layout = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/category/:category' element={<CategoryPage />} />
+        <Route
+          path='/category/:category/:subCategory'
+          element={<CategoryPage />}
+        />
         <Route path='/product/:id' element={<ProductDetail />} />
         <Route
           path='/login'

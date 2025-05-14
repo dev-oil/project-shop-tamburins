@@ -14,7 +14,10 @@ const fetchProducts = async (): Promise<Product[]> => {
 };
 
 const ProductList = () => {
-  const { category } = useParams<{ category: string }>();
+  const { category, subCategory } = useParams<{
+    category: string;
+    subCategory?: string;
+  }>();
   const { addToCart } = useCart();
 
   const { data: products } = useSuspenseQuery({
@@ -23,12 +26,49 @@ const ProductList = () => {
     staleTime: 1000 * 60 * 5,
   });
 
-  const filteredProducts =
+  // 해당 카테고리 내 상품만 필터
+  const categoryProducts =
     products?.filter((product) => product.category === category) || [];
+
+  // 카테고리 내 sub_category 리스트 추출
+  const subCategories = Array.from(
+    new Set(categoryProducts.map((p) => p.sub_category))
+  );
+
+  // 서브 카테고리 없으면 첫 번째 것을 기본으로
+  const currentSubCategory = subCategory || subCategories[0] || '';
+
+  // 현재 subCategory 기준 필터링
+  const filteredProducts = categoryProducts.filter(
+    (product) => product.sub_category === currentSubCategory
+  );
 
   return (
     <main className='main'>
       <section>
+        {/* 탭 영역 */}
+        <div className='sticky top-[74px] flex items-center gap-[20px] pt-[10px] pb-[20px] px-[30px] bg-white z-50'>
+          {/* 카테고리 이름 */}
+          <h2 className='text-[22px] font-medium uppercase'>{category}</h2>
+
+          {/* sub_category 탭 버튼 */}
+          <div className='flex gap-[10px]'>
+            {subCategories.map((sub) => (
+              <Link
+                key={sub}
+                to={`/category/${category}/${sub}`}
+                className={`px-[20px] py-[10px] rounded-[30px] text-xs uppercase ${
+                  sub === currentSubCategory
+                    ? 'bg-black text-white'
+                    : 'bg-[#f3f3f3] text-[#555555]'
+                }`}
+              >
+                {sub}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         <div>
           <h2 className='sr-only'>
             {category?.replace('-', ' ').toUpperCase()}
@@ -49,20 +89,6 @@ const ProductList = () => {
                         <strong className='font-normal'>
                           &#8361;{product.price.toLocaleString()}
                         </strong>
-                        <span className='text-xs text-gray-400'>
-                          +
-                          <span className='text-black'>
-                            {
-                              filteredProducts.filter(
-                                (p) =>
-                                  p.attributes?.volume ===
-                                    product.attributes?.volume &&
-                                  p.sub_category === product.sub_category
-                              ).length
-                            }
-                          </span>
-                          가지 향
-                        </span>
                       </div>
                     </div>
                   </Link>
@@ -81,7 +107,7 @@ const ProductList = () => {
               ))}
             </ul>
           ) : (
-            <p>현재 이 카테고리에 등록된 상품이 없습니다.</p>
+            <p>현재 이 sub_category에 등록된 상품이 없습니다.</p>
           )}
         </div>
       </section>
