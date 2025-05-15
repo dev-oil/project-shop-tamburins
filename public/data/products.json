@@ -1,7 +1,6 @@
 [
   {
     "id": "12321313",
-    "product_id": "bottari",
     "name": "퍼퓸 보타리",
     "price": 178000,
     "category": "perfume",
@@ -21,7 +20,6 @@
   },
   {
     "id": "3243",
-    "product_id": "bottari",
     "name": "퍼퓸 보타리 블랙",
     "price": 78000,
     "category": "perfume",
@@ -42,7 +40,6 @@
   },
   {
     "id": "293580294",
-    "product_id": "bottari",
     "name": "퍼퓸 보타리 화이트",
     "price": 78000,
     "category": "perfume",
@@ -63,7 +60,6 @@
   },
   {
     "id": "1",
-    "product_id": "evening-glow",
     "name": "퍼퓸 이브닝글로우",
     "price": 149000,
     "category": "perfume",
@@ -85,7 +81,6 @@
   },
   {
     "id": "1342342333",
-    "product_id": "evening-glow",
     "name": "퍼퓸 이브닝글로우",
     "price": 42000,
     "category": "perfume",
@@ -107,7 +102,6 @@
   },
   {
     "id": "1325465",
-    "product_id": "pumpkini",
     "name": "퍼퓸 펌키니",
     "price": 149000,
     "category": "perfume",
@@ -127,7 +121,6 @@
   },
   {
     "id": "454321",
-    "product_id": "holy-metal",
     "name": "퍼퓸 홀리메탈",
     "price": 149000,
     "category": "perfume",
@@ -147,7 +140,6 @@
   },
   {
     "id": "85465",
-    "product_id": "bold-citrus",
     "name": "퍼퓸 볼드시트러스",
     "price": 149000,
     "category": "perfume",
@@ -167,7 +159,6 @@
   },
   {
     "id": "4542154",
-    "product_id": "wood-salt-beach",
     "name": "퍼퓸 우드솔트비치",
     "price": 149000,
     "category": "perfume",
@@ -187,7 +178,6 @@
   },
   {
     "id": "4",
-    "product_id": "egg-perfume",
     "name": "에그 퍼퓸 펌키니",
     "price": 45800,
     "category": "perfume",
@@ -207,7 +197,6 @@
   },
   {
     "id": "134234234",
-    "product_id": "bottari",
     "name": "퍼퓸 밤 보타리",
     "price": 149000,
     "category": "perfume",
@@ -227,7 +216,6 @@
   },
   {
     "id": "2",
-    "product_id": "evening-glow",
     "name": "쉘 퍼퓸 핸드 이브닝 글로우",
     "price": 18500,
     "category": "hand-lip",
@@ -247,7 +235,6 @@
   },
   {
     "id": "5",
-    "product_id": "evening-glow",
     "name": "쉘 퍼퓸 핸드 이브닝글로우",
     "price": 55000,
     "category": "hand-lip",
@@ -267,7 +254,6 @@
   },
   {
     "id": "3",
-    "product_id": "rosewoody-glow",
     "name": "에그 립밤 로즈우디 글로우",
     "price": 28900,
     "category": "hand-lip",
