@@ -4,6 +4,9 @@ import { Suspense } from 'react';
 import { useCart } from '../../context/CartContext';
 import { Product } from '../../types';
 import { BiShoppingBag } from 'react-icons/bi';
+import CategoryTab from '../../components/product/CategoryTab';
+import EmptyState from '../../components/common/EmptyState';
+import { CiWavePulse1 } from 'react-icons/ci';
 
 const fetchProducts = async (): Promise<Product[]> => {
   const response = await fetch('/data/products.json');
@@ -28,7 +31,7 @@ const ProductList = () => {
 
   // 해당 카테고리 내 상품만 필터
   const categoryProducts =
-    products?.filter((product) => product.category === category) || [];
+    products?.filter((product) => product.category === category) ?? [];
 
   // 카테고리 내 sub_category 리스트 추출
   const subCategories = Array.from(
@@ -36,7 +39,7 @@ const ProductList = () => {
   );
 
   // 서브 카테고리 없으면 첫 번째 것을 기본으로
-  const currentSubCategory = subCategory || subCategories[0] || '';
+  const currentSubCategory = subCategory ?? subCategories[0] ?? '';
 
   // 현재 subCategory 기준 필터링
   const filteredProducts = categoryProducts.filter(
@@ -47,33 +50,13 @@ const ProductList = () => {
     <main className='main'>
       <section>
         {/* 탭 영역 */}
-        <div className='sticky top-[74px] flex items-center gap-[20px] pt-[10px] pb-[20px] px-[30px] bg-white z-50'>
-          {/* 카테고리 이름 */}
-          <h2 className='text-[22px] font-medium uppercase'>{category}</h2>
-
-          {/* sub_category 탭 버튼 */}
-          <div className='flex gap-[10px]'>
-            {subCategories.map((sub) => (
-              <Link
-                key={sub}
-                to={`/category/${category}/${sub}`}
-                className={`px-[20px] py-[10px] rounded-[30px] text-xs uppercase ${
-                  sub === currentSubCategory
-                    ? 'bg-black text-white'
-                    : 'bg-[#f3f3f3] text-[#555555]'
-                }`}
-              >
-                {sub}
-              </Link>
-            ))}
-          </div>
-        </div>
+        <CategoryTab
+          category={category!}
+          products={categoryProducts}
+          currentSubCategory={currentSubCategory}
+        />
 
         <div>
-          <h2 className='sr-only'>
-            {category?.replace('-', ' ').toUpperCase()}
-          </h2>
-
           {filteredProducts.length > 0 ? (
             <ul className='grid grid-cols-2 lg:grid-cols-3 gap-x-[1px] gap-y-[10px]'>
               {filteredProducts.map((product) => (
@@ -107,7 +90,10 @@ const ProductList = () => {
               ))}
             </ul>
           ) : (
-            <p>현재 이 sub_category에 등록된 상품이 없습니다.</p>
+            <EmptyState
+              message={'현재 등록된 상품이 없습니다.'}
+              icon={<CiWavePulse1 size={100} />}
+            />
           )}
         </div>
       </section>
