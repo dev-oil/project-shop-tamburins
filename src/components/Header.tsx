@@ -24,8 +24,15 @@ const Header = () => {
 
         <nav>
           <ul className='flex space-x-6'>
+            <Link
+              to='/category/bottari'
+              className={`text-xl uppercase hover:underline ${
+                isDetailPage ? 'text-black' : 'text-white'
+              }`}
+            >
+              bottari
+            </Link>
             {[
-              { path: '/category/bottari', label: 'bottari' },
               { path: '/category/perfume', label: 'perfume' },
               { path: '/category/hand-lip', label: 'hand&lip' },
               { path: '/category/body', label: 'body' },

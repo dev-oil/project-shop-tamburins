@@ -15,6 +15,7 @@ import FindPwPage from './pages/Login/FindPwPage';
 import ResetPasswordPage from './pages/Login/ResetPasswordPage';
 import PrivateRoute from './components/routes/PrivateRoute';
 import PublicOnlyRoute from './components/routes/PublicOnlyRoute';
+import BottariPage from './pages/Product/BottariPage';
 
 const queryClient = new QueryClient();
 
