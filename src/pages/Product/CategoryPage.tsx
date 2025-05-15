@@ -21,6 +21,7 @@ const ProductList = () => {
     category: string;
     subCategory?: string;
   }>();
+
   const { addToCart } = useCart();
 
   const { data: products } = useSuspenseQuery({
@@ -29,9 +30,16 @@ const ProductList = () => {
     staleTime: 1000 * 60 * 5,
   });
 
+  // 시리즈 페이지 (프로모션 보타리 페이지)
+  const isSeriesPage = category === 'bottari';
+
   // 해당 카테고리 내 상품만 필터
   const categoryProducts =
-    products?.filter((product) => product.category === category) ?? [];
+    products?.filter((product) =>
+      isSeriesPage
+        ? product.series === 'bottari'
+        : product.category === category
+    ) ?? [];
 
   // 카테고리 내 sub_category 리스트 추출
   const subCategories = Array.from(
@@ -42,9 +50,11 @@ const ProductList = () => {
   const currentSubCategory = subCategory ?? subCategories[0] ?? '';
 
   // 현재 subCategory 기준 필터링
-  const filteredProducts = categoryProducts.filter(
-    (product) => product.sub_category === currentSubCategory
-  );
+  const filteredProducts = isSeriesPage
+    ? categoryProducts
+    : categoryProducts.filter(
+        (product) => product.sub_category === currentSubCategory
+      );
 
   return (
     <main className='main'>
@@ -54,6 +64,7 @@ const ProductList = () => {
           category={category!}
           products={categoryProducts}
           currentSubCategory={currentSubCategory}
+          isSeriesPage={isSeriesPage}
         />
 
         <div>
@@ -72,6 +83,20 @@ const ProductList = () => {
                         <strong className='font-normal'>
                           &#8361;{product.price.toLocaleString()}
                         </strong>
+                        <span className='text-xs text-gray-400'>
+                          +
+                          <span className='text-black'>
+                            {
+                              filteredProducts.filter(
+                                (p) =>
+                                  p.attributes?.volume ===
+                                    product.attributes?.volume &&
+                                  p.sub_category === product.sub_category
+                              ).length
+                            }
+                          </span>
+                          가지 향
+                        </span>
                       </div>
                     </div>
                   </Link>
