@@ -38,12 +38,13 @@ const ProductContent = () => {
       </p>
     );
 
-  const volumeVariants = getUniqueVolumeVariants(products, product);
   const relatedProducts = getRelatedProducts(products, product);
   const sorted = [
     product,
     ...relatedProducts.filter((p) => p.id !== product.id),
   ];
+
+  const volumeVariants = getUniqueVolumeVariants(products, product);
   const colorVariants = getUniqueColorVariants(products, product);
 
   const handleAddToCart = () => {
