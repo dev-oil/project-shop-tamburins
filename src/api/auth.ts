@@ -1,52 +1,27 @@
 import { supabase } from '../lib/supabase';
-import { handleSupabaseError } from '../utils/handleSupabaseError';
+import { handleAuthRequest } from '../utils/supabaseUtils';
 
 // 기본 로그인
-export const loginUser = async (email: string, password: string) => {
-  const { error, data } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
-  if (error) handleSupabaseError(error);
-  return data;
-};
+export const loginUser = (email: string, password: string) =>
+  handleAuthRequest(supabase.auth.signInWithPassword({ email, password }));
 
-export const signUpUser = async (email: string, password: string) => {
-  const { error, data } = await supabase.auth.signUp({
-    email,
-    password,
-  });
-  if (error) handleSupabaseError(error);
-  return data;
-};
+export const signUpUser = (email: string, password: string) =>
+  handleAuthRequest(supabase.auth.signUp({ email, password }));
 
-export const logoutUser = async () => {
-  const { error } = await supabase.auth.signOut();
-  if (error) handleSupabaseError(error);
-};
+export const logoutUser = () => handleAuthRequest(supabase.auth.signOut());
 
 // 구글 로그인
-export const signInWithGoogle = async () => {
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
-  });
-
-  if (error) handleSupabaseError(error);
-};
+export const signInWithGoogle = () =>
+  handleAuthRequest(supabase.auth.signInWithOAuth({ provider: 'google' }));
 
 // 카카오 로그인
-export const signInWithKakao = async () => {
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: 'kakao',
-  });
-
-  if (error) handleSupabaseError(error);
-};
+export const signInWithKakao = () =>
+  handleAuthRequest(supabase.auth.signInWithOAuth({ provider: 'kakao' }));
 
 // 패스워드 리셋
-export const sendResetPasswordEmail = async (email: string) => {
-  const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: 'http://localhost:5173/reset-password',
-  });
-  if (error) handleSupabaseError(error);
-};
+export const sendResetPasswordEmail = (email: string) =>
+  handleAuthRequest(
+    supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: 'http://localhost:5173/reset-password',
+    })
+  );
