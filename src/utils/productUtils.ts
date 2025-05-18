@@ -1,4 +1,5 @@
 import { Product } from '../types';
+import _ from 'lodash';
 
 // 같은 시리즈 + 같은 sub_category 기준으로 volume(용량)별로 묶어서 고유한 버전만 리턴.
 export const getUniqueVolumeVariants = (
@@ -13,9 +14,9 @@ export const getUniqueVolumeVariants = (
   );
 
   // 볼륨 단위로 그룹화
-  const volumes = Array.from(
-    new Set(sameGroup.map((p) => p.attributes!.volume))
-  ).sort((a, b) => parseInt(a!) - parseInt(b!));
+  const volumes = _.uniq(sameGroup.map((p) => p.attributes!.volume)).sort(
+    (a, b) => parseInt(a!) - parseInt(b!)
+  );
 
   return volumes.map((volume) => {
     // 해당 volume인 제품들을 모두 가져옴
