@@ -127,7 +127,7 @@ const ProductContent = () => {
             </div>
 
             {/* color */}
-            {colorVariants.length > 0 && (
+            {colorVariants.length > 1 && (
               <div className='mt-[20px] pt-[20px] border-t-1 border-gray-200'>
                 <span className='block text-xs mb-[10px]'>컬러</span>
                 <div className='flex gap-[10px]'>
