@@ -45,9 +45,7 @@ export const getUniqueColorVariants = (
   );
 
   // color 속성 기준으로 고유 컬러 목록 생성 (중복 제거)
-  const colors = Array.from(
-    new Set(sameVolume.map((p) => p.attributes?.color))
-  );
+  const colors = _.uniq(sameVolume.map((p) => p.attributes?.color));
 
   // 각 color별 대표 상품 반환
   return colors.map((color) => {
