@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 ${
+      className={`fixed top-0 left-0 w-full z-[var(--z-header)] ${
         isDetailPage ? 'bg-white' : 'bg-transparent'
       } `}
     >

@@ -23,7 +23,7 @@ const CategoryTab = ({
   const selectedTab = isSeriesPage ? category : currentSubCategory; // 시리즈 페이지일경우, currentSubCategory를 무조건 category로 강제
 
   return (
-    <div className='sticky top-[74px] flex items-center gap-[20px] pt-[10px] pb-[20px] px-[30px] bg-white z-50'>
+    <div className='sticky top-[74px] flex items-center gap-[20px] pt-[10px] pb-[20px] px-[30px] bg-white z-[var(--z-sticky-tab)]'>
       <h2 className='text-[22px] font-medium uppercase'>{category}</h2>
 
       <div className='flex gap-[10px]'>
