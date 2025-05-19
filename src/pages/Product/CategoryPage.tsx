@@ -7,6 +7,7 @@ import { BiShoppingBag } from 'react-icons/bi';
 import CategoryTab from '../../components/product/CategoryTab';
 import EmptyState from '../../components/common/EmptyState';
 import { CiWavePulse1 } from 'react-icons/ci';
+import _ from 'lodash';
 
 const fetchProducts = async (): Promise<Product[]> => {
   const response = await fetch('/data/products.json');
@@ -42,9 +43,7 @@ const ProductList = () => {
     ) ?? [];
 
   // 카테고리 내 sub_category 리스트 추출
-  const subCategories = Array.from(
-    new Set(categoryProducts.map((p) => p.sub_category))
-  );
+  const subCategories = _.uniq(categoryProducts.map((p) => p.sub_category));
 
   // 서브 카테고리 없으면 첫 번째 것을 기본으로
   const currentSubCategory = subCategory ?? subCategories[0] ?? '';

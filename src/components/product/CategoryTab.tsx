@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Product } from '../../types';
+import _ from 'lodash';
 
 type CategoryTabProps = {
   category: string;
@@ -15,9 +16,8 @@ const CategoryTab = ({
   isSeriesPage,
 }: CategoryTabProps) => {
   // 카테고리 내 sub_category 리스트 추출
-  const subCategories = Array.from(
-    new Set(products.map((p) => p.sub_category))
-  );
+
+  const subCategories = _.uniq(products.map((p) => p.sub_category));
 
   const tabs = isSeriesPage ? [category] : subCategories;
   const selectedTab = isSeriesPage ? category : currentSubCategory; // 시리즈 페이지일경우, currentSubCategory를 무조건 category로 강제
