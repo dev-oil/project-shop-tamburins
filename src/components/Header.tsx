@@ -61,7 +61,7 @@ const Header = () => {
           </div>
 
           <Link
-            to='/login'
+            to='/mypage'
             className={isDetailPage ? 'text-black' : 'text-white'}
           >
             <FaUser size={20} />
