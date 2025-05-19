@@ -8,17 +8,29 @@ type ProductFilterOptions = {
   excludeId?: string;
 };
 
+// 맞는 조건 찾기 (조건이 없거나 같으면 통과)
+const matches = <T>(expected: T | undefined, value: T | undefined): boolean => {
+  return expected === undefined || expected === value;
+};
+
+// 제외 조건 찾기 (제외 조건이 없거나 값이 다르면 통과)
+const notMatches = <T>(
+  exclude: T | undefined,
+  value: T | undefined
+): boolean => {
+  return exclude === undefined || exclude !== value;
+};
+
 export const filterProducts = (
   products: Product[],
   options: ProductFilterOptions
 ): Product[] => {
   return products.filter((p) => {
-    if (options.sub_category && p.sub_category !== options.sub_category)
-      return false;
-    if (options.series && p.series !== options.series) return false;
-    if (options.volume && p.attributes?.volume !== options.volume) return false;
-    if (options.color && p.attributes?.color !== options.color) return false;
-    if (options.excludeId && p.id === options.excludeId) return false;
+    if (!matches(options.sub_category, p.sub_category)) return false;
+    if (!matches(options.series, p.series)) return false;
+    if (!matches(options.volume, p.attributes.volume)) return false;
+    if (!matches(options.color, p.attributes.color)) return false;
+    if (!notMatches(options.excludeId, p.id)) return false;
 
     return true;
   });
