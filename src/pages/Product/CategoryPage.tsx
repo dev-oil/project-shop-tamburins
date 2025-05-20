@@ -5,7 +5,7 @@ import { useCart } from '../../context/CartContext';
 import { Product } from '../../types';
 import { BiShoppingBag } from 'react-icons/bi';
 import CategoryTab from '../../components/product/CategoryTab';
-import EmptyState from '../../components/common/EmptyState';
+import EmptyState from '../../components/common/Empty/EmptyState';
 import { CiWavePulse1 } from 'react-icons/ci';
 import _ from 'lodash';
 

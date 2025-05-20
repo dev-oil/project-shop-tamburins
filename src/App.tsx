@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Header from './components/Header';
+import Header from './components/common/Header/Header';
 import CategoryPage from './pages/Product/CategoryPage';
 import ProductDetail from './pages/Product/ProductDetail';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';

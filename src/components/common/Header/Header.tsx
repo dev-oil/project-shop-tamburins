@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { FaSearch, FaUser, FaShoppingBag } from 'react-icons/fa'; // 아이콘 추가
-import logo from '../assets/logo.svg';
-import { useCart } from '../context/CartContext';
+import logo from '../../../assets/logo.svg';
+import { useCart } from '../../../context/CartContext';
 
 const Header = () => {
   const location = useLocation(); // 현재 경로 가져오기
