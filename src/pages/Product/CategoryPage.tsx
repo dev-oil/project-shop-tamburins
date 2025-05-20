@@ -1,9 +1,13 @@
 import { useParams, Link } from 'react-router-dom';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { Suspense } from 'react';
-import { useCart } from '../context/CartContext';
-import { Product } from '../types';
+import { useCart } from '../../context/CartContext';
+import { Product } from '../../types';
 import { BiShoppingBag } from 'react-icons/bi';
+import CategoryTab from '../../components/product/CategoryTab';
+import EmptyState from '../../components/common/EmptyState';
+import { CiWavePulse1 } from 'react-icons/ci';
+import _ from 'lodash';
 
 const fetchProducts = async (): Promise<Product[]> => {
   const response = await fetch('/data/products.json');
@@ -14,7 +18,11 @@ const fetchProducts = async (): Promise<Product[]> => {
 };
 
 const ProductList = () => {
-  const { category } = useParams<{ category: string }>();
+  const { category, subCategory } = useParams<{
+    category: string;
+    subCategory?: string;
+  }>();
+
   const { addToCart } = useCart();
 
   const { data: products } = useSuspenseQuery({
@@ -23,17 +31,42 @@ const ProductList = () => {
     staleTime: 1000 * 60 * 5,
   });
 
-  const filteredProducts =
-    products?.filter((product) => product.category === category) || [];
+  // 시리즈 페이지 (프로모션 보타리 페이지)
+  const isSeriesPage = category === 'bottari';
+
+  // 해당 카테고리 내 상품만 필터
+  const categoryProducts =
+    products?.filter((product) =>
+      isSeriesPage
+        ? product.series === 'bottari'
+        : product.category === category
+    ) ?? [];
+
+  // 카테고리 내 sub_category 리스트 추출
+  const subCategories = _.uniq(categoryProducts.map((p) => p.sub_category));
+
+  // 서브 카테고리 없으면 첫 번째 것을 기본으로
+  const currentSubCategory = subCategory ?? subCategories[0] ?? '';
+
+  // 현재 subCategory 기준 필터링
+  const filteredProducts = isSeriesPage
+    ? categoryProducts
+    : categoryProducts.filter(
+        (product) => product.sub_category === currentSubCategory
+      );
 
   return (
     <main className='main'>
       <section>
-        <div>
-          <h2 className='sr-only'>
-            {category?.replace('-', ' ').toUpperCase()}
-          </h2>
+        {/* 탭 영역 */}
+        <CategoryTab
+          category={category!}
+          products={categoryProducts}
+          currentSubCategory={currentSubCategory}
+          isSeriesPage={isSeriesPage}
+        />
 
+        <div>
           {filteredProducts.length > 0 ? (
             <ul className='grid grid-cols-2 lg:grid-cols-3 gap-x-[1px] gap-y-[10px]'>
               {filteredProducts.map((product) => (
@@ -81,7 +114,10 @@ const ProductList = () => {
               ))}
             </ul>
           ) : (
-            <p>현재 이 카테고리에 등록된 상품이 없습니다.</p>
+            <EmptyState
+              message={'현재 등록된 상품이 없습니다.'}
+              icon={<CiWavePulse1 size={100} />}
+            />
           )}
         </div>
       </section>

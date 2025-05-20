@@ -9,7 +9,11 @@ const Header = () => {
   const { openCart } = useCart();
 
   return (
-    <header className='fixed top-0 left-0 w-full z-50 bg-transparent'>
+    <header
+      className={`fixed top-0 left-0 w-full z-[var(--z-header)] ${
+        isDetailPage ? 'bg-white' : 'bg-transparent'
+      } `}
+    >
       <div className='mx-auto px-6 py-4 flex justify-between items-center'>
         <h1 className='shrink-0'>
           <Link to='/'>
@@ -20,8 +24,15 @@ const Header = () => {
 
         <nav>
           <ul className='flex space-x-6'>
+            <Link
+              to='/category/bottari'
+              className={`text-xl uppercase hover:underline ${
+                isDetailPage ? 'text-black' : 'text-white'
+              }`}
+            >
+              bottari
+            </Link>
             {[
-              { path: '/category/bottari', label: 'bottari' },
               { path: '/category/perfume', label: 'perfume' },
               { path: '/category/hand-lip', label: 'hand&lip' },
               { path: '/category/body', label: 'body' },

@@ -1,4 +1,17 @@
 @layer base {
+  :root {
+    --z-base: 1;
+    --z-sticky-tab: 30;
+    --z-header: 50;
+    --z-dropdown: 100;
+    --z-sidebar: 200;
+    --z-overlay: 900;
+    --z-modal: 1000;
+    --z-toast: 1500;
+    --z-cart: 9999;
+    --z-loading: 10000;
+  }
+
   body {
     font-family: 'Noto Sans KR', sans-serif;
   }
