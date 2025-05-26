@@ -1,5 +1,6 @@
 import { PiTrashThin } from 'react-icons/pi';
 import { useCart } from '../context/CartContext';
+import { IoCloseOutline } from 'react-icons/io5';
 import _ from 'lodash';
 
 const CartModal = ({ onClose }: { onClose: () => void }) => {
@@ -18,9 +19,9 @@ const CartModal = ({ onClose }: { onClose: () => void }) => {
           <h2 className='text-xl font-bold'>쇼핑백</h2>
           <button
             onClick={onClose}
-            className='text-gray-500 hover:text-black text-2xl'
+            className='text-gray-500 hover:text-black text-2xl cursor-pointer'
           >
-            &times;
+            <IoCloseOutline size={30} />
           </button>
         </div>
 
