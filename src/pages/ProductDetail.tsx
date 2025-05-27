@@ -4,6 +4,11 @@ import { useState, Suspense } from 'react';
 import { useCart } from '../context/CartContext';
 import { Product } from '../types';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import {
+  getUniqueVolumeVariants,
+  getRelatedProducts,
+  getUniqueColorVariants,
+} from '../utils/productUtils';
 
 const fetchProducts = async (): Promise<Product[]> => {
   const response = await fetch('/data/products.json');
@@ -23,7 +28,7 @@ const ProductContent = () => {
   });
 
   const product = products?.find((product) => product.id === id);
-  const [quantity, _] = useState(1);
+  const [quantity] = useState(1);
   const { addToCart } = useCart();
 
   if (!product)
@@ -33,13 +38,14 @@ const ProductContent = () => {
       </p>
     );
 
-  // 카테고리 탭
-  const related = products.filter(
-    (p) =>
-      p.sub_category === product.sub_category &&
-      p.attributes?.volume === product.attributes?.volume
-  );
-  const sorted = [product, ...related.filter((p) => p.id !== product.id)];
+  const relatedProducts = getRelatedProducts(products, product);
+  const sorted = [
+    product,
+    ...relatedProducts.filter((p) => p.id !== product.id),
+  ];
+
+  const volumeVariants = getUniqueVolumeVariants(products, product);
+  const colorVariants = getUniqueColorVariants(products, product);
 
   const handleAddToCart = () => {
     addToCart({ product, quantity });
@@ -81,7 +87,7 @@ const ProductContent = () => {
           </div>
         </div>
 
-        <div className='w-full md:w-1/2 px-[8vw]'>
+        <div className='w-full md:w-1/2 px-[8vw] py-[30px]'>
           <div className='sticky top-[120px]'>
             <div>
               <h2 className='text-2xl'>{product.name}</h2>
@@ -119,20 +125,57 @@ const ProductContent = () => {
                 ))}
               </Swiper>
             </div>
+
+            {/* color */}
+            {colorVariants.length > 1 && (
+              <div className='mt-[20px] pt-[20px] border-t-1 border-gray-200'>
+                <span className='block text-xs mb-[10px]'>컬러</span>
+                <div className='flex gap-[10px]'>
+                  {colorVariants.map((item) => (
+                    <Link to={`/product/${item.id}`} key={item.id}>
+                      <div
+                        className={`w-[20px] h-[20px] rounded-full border-1 flex items-center justify-center ${
+                          item.id === product.id
+                            ? 'border-black'
+                            : 'border-gray-200'
+                        }`}
+                      >
+                        <div
+                          className='w-[10px] h-[10px] rounded-full'
+                          style={{
+                            backgroundColor:
+                              item.attributes?.color || '#f5f5f5',
+                          }}
+                        ></div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 사이즈 (ml) */}
             <div className='mt-[20px] pt-[20px] border-t-1 border-gray-200'>
-              <span className='block text-xs '>사이즈</span>
+              <span className='block text-xs'>사이즈</span>
               <div className='flex mt-[10px]'>
-                <button className='py-[5px] px-[32px] border-1 rounded-full'>
-                  11mL
-                </button>
-                <button className='ml-[10px] py-[5px] px-[32px] border-1 rounded-full'>
-                  20mL
-                </button>
+                {volumeVariants.map((item) => (
+                  <Link to={`/product/${item.id}`} key={item.id}>
+                    <button
+                      className={`mr-[10px] py-[10px] px-[32px] border-1 rounded-full text-xs ${
+                        item.id === product.id
+                          ? 'border-black'
+                          : 'border-gray-200 hover:border-black text-gray-500'
+                      } cursor-pointer`}
+                    >
+                      {item.attributes?.volume}
+                    </button>
+                  </Link>
+                ))}
               </div>
             </div>
 
             <button
-              className='w-full py-3 bg-black text-white text-lg rounded-md hover:bg-gray-900 transition cursor-pointer mt-[30px]'
+              className='w-full py-3 bg-black text-white text-sm rounded-md hover:bg-gray-900 transition cursor-pointer mt-[30px]'
               onClick={handleAddToCart}
             >
               쇼핑백에 추가
