@@ -132,7 +132,7 @@ const ProductContent = () => {
             </div>
 
             <button
-              className='w-full py-3 bg-black text-white text-lg rounded-md hover:bg-gray-900 transition cursor-pointer mt-[30px]'
+              className='w-full py-3 bg-black text-white text-lg rounded-md hover:bg-gray-900 transition mt-[30px]'
               onClick={handleAddToCart}
             >
               쇼핑백에 추가

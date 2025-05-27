@@ -29,7 +29,7 @@ const GnbDesktop = ({
           <li key={category.label}>
             <button
               onClick={() => handleCategoryClick(index)}
-              className={`relative px-[10px] py-[8px] cursor-pointer transition-all duration-300 after:content-[''] after:absolute after:bottom-[5px] after:left-1/2 after:translate-x-[-50%] after:w-[calc(100%-20px)] after:h-[2px] after:transition-colors after:duration-100 ${
+              className={`relative px-[10px] py-[8px] transition-all duration-300 after:content-[''] after:absolute after:bottom-[5px] after:left-1/2 after:translate-x-[-50%] after:w-[calc(100%-20px)] after:h-[2px] after:transition-colors after:duration-100 ${
                 categoryIndex === index
                   ? 'after:bg-black'
                   : 'after:bg-transparent hover:after:bg-white'

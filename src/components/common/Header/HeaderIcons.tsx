@@ -12,17 +12,17 @@ const HeaderIcons = ({ onCartClick, onMobileMenuOpen }: HeaderIconsProps) => {
   return (
     <div className='flex items-center gap-[10px]'>
       {/* search */}
-      <button className='p-[5px] cursor-pointer'>
+      <button className='p-[5px]'>
         <FaSearch />
       </button>
 
       {/* mypage */}
-      <Link to='/mypage' className='p-[5px] cursor-pointer'>
+      <Link to='/mypage' className='p-[5px]'>
         <FaUser />
       </Link>
 
       {/* shopping */}
-      <button onClick={onCartClick} className='p-[5px] cursor-pointer'>
+      <button onClick={onCartClick} className='p-[5px]'>
         <FaShoppingBag />
       </button>
 
@@ -31,7 +31,7 @@ const HeaderIcons = ({ onCartClick, onMobileMenuOpen }: HeaderIconsProps) => {
         <button
           onClick={onMobileMenuOpen}
           aria-label='메뉴 열기'
-          className='block text-2xl focus:outline-none cursor-pointer'
+          className='block text-2xl focus:outline-none'
         >
           <RxHamburgerMenu />
         </button>

@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Header from './components/common/Header';
@@ -7,7 +6,7 @@ import ProductDetail from './pages/Product/ProductDetail';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { CartProvider, useCart } from './context/CartContext';
-import CartModal from './components/CartModal';
+import CartModal from './components/common/Modal/CartModal';
 import LoginPage from './pages/Login/LoginPage';
 import MyPage from './pages/MyPage';
 import SignUpPage from './pages/Login/SignUpPage';
@@ -87,7 +86,7 @@ const Layout = () => {
         />
       </Routes>
 
-      {isCartOpen && <CartModal onClose={closeCart} />}
+      <CartModal isOpen={isCartOpen} onClose={closeCart} />
     </>
   );
 };

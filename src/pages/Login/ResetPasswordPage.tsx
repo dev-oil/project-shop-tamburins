@@ -52,7 +52,7 @@ const ResetPasswordPage = () => {
               </div>
               <button
                 type='submit'
-                className='w-full bg-black text-white py-3 rounded cursor-pointer text-xs'
+                className='w-full bg-black text-white py-3 rounded text-xs'
               >
                 비밀번호 변경
               </button>

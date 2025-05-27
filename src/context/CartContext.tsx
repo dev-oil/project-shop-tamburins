@@ -1,12 +1,12 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 import { Product } from '../types';
 
-interface CartItem {
+type CartItem = {
   product: Product;
   quantity: number;
-}
+};
 
-interface CartContextType {
+type CartContextType = {
   isCartOpen: boolean;
   openCart: () => void;
   closeCart: () => void;
@@ -14,7 +14,7 @@ interface CartContextType {
   addToCart: (item: CartItem) => void;
   updateQuantity: (id: string, quantity: number) => void;
   removeFromCart: (id: string) => void;
-}
+};
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 

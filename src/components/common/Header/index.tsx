@@ -38,7 +38,7 @@ const Header = () => {
         isWhiteBackground ? 'bg-white' : 'bg-transparent'
       } z-[var(--z-header)]`}
     >
-      <div className='flex justify-between items-center px-[24px] py-[10px]'>
+      <div className='flex justify-between items-center h-[60px] lg:h-[70px] px-[10px] lg:px-[24px] py-[10px]'>
         <h1>
           <Link to='/' className='block py-[10px]'>
             <img src={logo} alt='logo' className='w-[150px] lg:w-[200px]' />

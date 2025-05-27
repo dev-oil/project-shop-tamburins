@@ -37,11 +37,7 @@ const GnbMobile = ({
         }`}
       >
         <div className='flex justify-end p-[16px]'>
-          <button
-            onClick={onMobileMenuClose}
-            aria-label='메뉴 닫기'
-            className='cursor-pointer'
-          >
+          <button onClick={onMobileMenuClose} aria-label='메뉴 닫기'>
             <IoCloseOutline size={30} />
           </button>
         </div>
@@ -51,7 +47,7 @@ const GnbMobile = ({
             <div key={category.label}>
               <button
                 onClick={() => toggleIndex(index)}
-                className='flex justify-between w-full px-[20px] py-[15px] text-left text-md cursor-pointer border-t border-gray-100'
+                className='flex justify-between w-full px-[20px] py-[15px] text-left text-md border-t border-gray-100'
               >
                 <span>{category.label}</span>
                 <span>{openIndex === index ? <BiMinus /> : <BiPlus />}</span>

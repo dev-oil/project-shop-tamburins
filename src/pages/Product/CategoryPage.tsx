@@ -100,7 +100,7 @@ const ProductList = () => {
                     </div>
                   </Link>
                   <button
-                    className='absolute top-[15px] right-[15px] p-[6px] bg-gray-800/50 rounded-full flex items-center justify-center border-1 border-white border-solid cursor-pointer'
+                    className='absolute top-[15px] right-[15px] p-[6px] bg-gray-800/50 rounded-full flex items-center justify-center border-1 border-white border-solid'
                     onClick={() =>
                       addToCart({
                         product,
