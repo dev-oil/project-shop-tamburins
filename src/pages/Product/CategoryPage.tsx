@@ -5,7 +5,7 @@ import { useCart } from '../../context/CartContext';
 import { Product } from '../../types';
 import { BiShoppingBag } from 'react-icons/bi';
 import CategoryTab from '../../components/product/CategoryTab';
-import EmptyState from '../../components/common/EmptyState';
+import EmptyState from '../../components/common/Empty/EmptyState';
 import { CiWavePulse1 } from 'react-icons/ci';
 import _ from 'lodash';
 
@@ -100,7 +100,7 @@ const ProductList = () => {
                     </div>
                   </Link>
                   <button
-                    className='absolute top-[15px] right-[15px] p-[6px] bg-gray-800/50 rounded-full flex items-center justify-center border-1 border-white border-solid cursor-pointer'
+                    className='absolute top-[15px] right-[15px] p-[6px] bg-gray-800/50 rounded-full flex items-center justify-center border-1 border-white border-solid'
                     onClick={() =>
                       addToCart({
                         product,

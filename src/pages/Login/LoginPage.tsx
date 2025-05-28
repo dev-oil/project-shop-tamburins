@@ -75,7 +75,7 @@ const LoginPage = () => {
             </div>
             <button
               type='submit'
-              className='w-full bg-black text-white py-3 rounded cursor-pointer text-xs'
+              className='w-full bg-black text-white py-3 rounded text-xs'
             >
               {loginMutation.isPending ? '로그인 중...' : '로그인'}
             </button>
@@ -96,7 +96,7 @@ const LoginPage = () => {
             <button
               onClick={() => googleLoginMutation.mutate()}
               type='button'
-              className='flex items-center gap-2 bg-gray-100 w-full justify-center py-3 rounded cursor-pointer text-xs'
+              className='flex items-center gap-2 bg-gray-100 w-full justify-center py-3 rounded text-xs'
             >
               <FaGoogle />
               구글 로그인
@@ -104,7 +104,7 @@ const LoginPage = () => {
             <button
               onClick={() => kakaoLoginMutation.mutate()}
               type='button'
-              className='flex items-center gap-2 bg-[#f7e600] w-full justify-center py-3 rounded cursor-pointer text-xs'
+              className='flex items-center gap-2 bg-[#f7e600] w-full justify-center py-3 rounded text-xs'
             >
               <RiKakaoTalkFill size={15} />
               카카오 로그인
