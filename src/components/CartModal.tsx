@@ -11,7 +11,7 @@ const CartModal = ({ onClose }: { onClose: () => void }) => {
   );
 
   return (
-    <div className='fixed inset-0 flex justify-end z-50'>
+    <div className='fixed inset-0 flex justify-end z-[var(--z-cart)]'>
       <div className='absolute inset-0 bg-black/50' onClick={onClose}></div>
       <div className='relative bg-white h-full w-[480px] shadow-lg transform transition-transform translate-x-0'>
         <div className='flex justify-between items-center p-4 border-b'>
