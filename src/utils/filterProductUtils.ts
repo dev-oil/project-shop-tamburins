@@ -1,43 +1,69 @@
 import { Product } from '../types';
 
-// pipe 적용해보기
 // 타입들
-export type VolumeFilter = { volume: string };
-export type SeriesFilter = { series: string };
-export type SubCategoryFilter = { sub_category: string };
-export type ColorFilter = { color: string };
-export type ExcludeIdFilter = { excludeId: string };
+export type VolumeCondition = { volume: string };
+export type SeriesCondition = { series: string };
+export type SubCategoryCondition = { sub_category: string };
+export type ColorCondition = { color: string };
+export type ExcludeIdCondition = { excludeId: string };
 
-// 필터 함수 타입
-export type ProductFilterFn = (products: Product[]) => Product[];
+// 조건 함수 타입
+export type ProductConditionFn = (products: Product) => boolean;
 
-// 필터 함수들
-export const filterByVolume = ({ volume }: VolumeFilter): ProductFilterFn => {
-  return (products) => products.filter((p) => p.attributes.volume === volume);
+export const volumeCondition = ({
+  volume,
+}: VolumeCondition): ProductConditionFn => {
+  return (p) => p.attributes.volume === volume;
 };
 
-export const filterBySeries = ({ series }: SeriesFilter): ProductFilterFn => {
-  return (products) => products.filter((p) => p.series === series);
+export const seriesCondition = ({
+  series,
+}: SeriesCondition): ProductConditionFn => {
+  return (p) => p.series === series;
 };
 
-export const filterBySubCategory = ({
+export const subCategoryCondition = ({
   sub_category,
-}: SubCategoryFilter): ProductFilterFn => {
-  return (products) => products.filter((p) => p.sub_category === sub_category);
+}: SubCategoryCondition): ProductConditionFn => {
+  return (p) => p.sub_category === sub_category;
 };
 
-export const filterByColor = ({ color }: ColorFilter): ProductFilterFn => {
-  return (products) => products.filter((p) => p.attributes.color === color);
+export const colorCondition = ({
+  color,
+}: ColorCondition): ProductConditionFn => {
+  return (p) => p.attributes.color === color;
 };
 
-export const filterExcludeId = ({
+export const excludeCondition = ({
   excludeId,
-}: ExcludeIdFilter): ProductFilterFn => {
-  return (products) => products.filter((p) => p.id !== excludeId);
+}: ExcludeIdCondition): ProductConditionFn => {
+  return (p) => p.id !== excludeId;
 };
 
-// pipe 함수
-export const pipeFilters =
-  (...filters: ProductFilterFn[]) =>
-  (products: Product[]): Product[] =>
-    filters.reduce((acc, fn) => fn(acc), products);
+export type Condition<T> = (x: T) => boolean;
+
+export function satisfyEvery<T>(condition: Condition<T>[]): Condition<T> {
+  return (x) => condition.every((c) => c(x));
+}
+
+export function satisfySome<T>(condition: Condition<T>[]): Condition<T> {
+  return (x) => condition.some((c) => c(x));
+}
+
+// export const allCondition = (p: Product) =>
+//   [
+//     volumeCondition({} as any),
+//     seriesCondition({} as any),
+//     subCategoryCondition({} as any),
+//     colorCondition({} as any),
+//     excludeCondition({} as any),
+//   ].every((f) => f(p));
+
+// export const someCondition = (p: Product) =>
+//   [
+//     volumeCondition({} as any),
+//     seriesCondition({} as any),
+//     subCategoryCondition({} as any),
+//     colorCondition({} as any),
+//     excludeCondition({} as any),
+//   ].some((f) => f(p));

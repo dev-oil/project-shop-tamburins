@@ -1,11 +1,11 @@
 import { Product } from '../types';
 import _ from 'lodash';
 import {
-  filterBySeries,
-  filterBySubCategory,
-  filterByVolume,
-  filterExcludeId,
-  pipeFilters,
+  seriesCondition,
+  subCategoryCondition,
+  volumeCondition,
+  excludeCondition,
+  satisfyEvery,
 } from './filterProductUtils';
 
 // 같은 시리즈 + 같은 sub_category 기준으로 volume(용량)별로 묶어서 고유한 버전만 리턴.
@@ -13,10 +13,12 @@ export const getUniqueVolumeVariants = (
   products: Product[],
   current: Product
 ): Product[] => {
-  const matched = pipeFilters(
-    filterBySubCategory({ sub_category: current.sub_category }),
-    filterBySeries({ series: current.series })
-  )(products);
+  const condition = satisfyEvery([
+    subCategoryCondition({ sub_category: current.sub_category }),
+    seriesCondition({ series: current.series }),
+  ]);
+
+  const matched = products.filter(condition);
 
   // 볼륨 단위로 그룹화
   const volumes = _.uniq(matched.map((p) => p.attributes!.volume)).sort(
@@ -43,11 +45,13 @@ export const getUniqueColorVariants = (
 ): Product[] => {
   if (!current.attributes?.volume) return [];
 
-  const matched = pipeFilters(
-    filterBySubCategory({ sub_category: current.sub_category }),
-    filterBySeries({ series: current.series }),
-    filterByVolume({ volume: current.attributes.volume })
-  )(products);
+  const condition = satisfyEvery([
+    subCategoryCondition({ sub_category: current.sub_category }),
+    seriesCondition({ series: current.series }),
+    volumeCondition({ volume: current.attributes.volume }),
+  ]);
+
+  const matched = products.filter(condition);
 
   // color 속성 기준으로 고유 컬러 목록 생성 (중복 제거)
   const colors = _.uniq(matched.map((p) => p.attributes?.color));
@@ -74,11 +78,13 @@ export const getRelatedProducts = (
   if (!current.attributes?.volume) return [];
 
   // 현재 제품을 제외하고 같은 sub_category, 같은 volume인 제품들만 필터링
-  const matched = pipeFilters(
-    filterBySubCategory({ sub_category: current.sub_category }),
-    filterByVolume({ volume: current.attributes.volume }),
-    filterExcludeId({ excludeId: current.id })
-  )(products);
+  const condition = satisfyEvery([
+    subCategoryCondition({ sub_category: current.sub_category }),
+    volumeCondition({ volume: current.attributes.volume }),
+    excludeCondition({ excludeId: current.id }),
+  ]);
+
+  const matched = products.filter(condition);
 
   // current 제품을 맨 앞에 두고 나머지 관련 제품 리스트를 뒤에 붙임
   return [current, ...matched];
